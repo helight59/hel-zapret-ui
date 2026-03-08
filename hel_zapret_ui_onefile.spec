@@ -21,6 +21,18 @@ def collect_python_sources(root_dir: str) -> list[tuple[str, str]]:
 
 hiddenimports = []
 hiddenimports += collect_submodules('PySide6')
+hiddenimports += collect_submodules('app')
+hiddenimports += collect_submodules('cli')
+hiddenimports += collect_submodules('services')
+hiddenimports += collect_submodules('services.history')
+hiddenimports += collect_submodules('services.security')
+hiddenimports += collect_submodules('services.tests')
+hiddenimports += collect_submodules('services.updater')
+hiddenimports += collect_submodules('services.windows')
+hiddenimports += collect_submodules('services.zapret')
+hiddenimports += collect_submodules('ui')
+hiddenimports += collect_submodules('utils')
+hiddenimports += collect_submodules('src')
 hiddenimports += collect_submodules('src.app')
 hiddenimports += collect_submodules('src.cli')
 hiddenimports += collect_submodules('src.services')

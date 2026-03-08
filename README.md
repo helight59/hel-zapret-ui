@@ -108,7 +108,7 @@ pip install -r requirements.txt
 ### 2. Запустить приложение
 
 ```bat
-python -m src.main
+python src/main.py
 ```
 
 Если приложение стартует без прав администратора, оно само запросит повышение прав.

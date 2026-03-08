@@ -1,0 +1,2 @@
+pyinstaller==6.11.0
+uiautomation==2.0.20

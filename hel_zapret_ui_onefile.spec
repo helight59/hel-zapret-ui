@@ -4,16 +4,19 @@
 # Все данные из папки assets будут внутри exe и распакуются во временную папку
 # sys._MEIPASS при старте.
 
+import os
 from PyInstaller.utils.hooks import collect_submodules
 
 block_cipher = None
+project_root = os.path.abspath('.')
 
 hiddenimports = []
 hiddenimports += collect_submodules('PySide6')
+hiddenimports += collect_submodules('src')
 
 a = Analysis(
   ['src/main.py'],
-  pathex=['.'],
+  pathex=[project_root],
   binaries=[],
   datas=[('assets', 'assets')],
   hiddenimports=hiddenimports,

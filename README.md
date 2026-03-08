@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.11%2B-3776AB)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-Portable GUI-приложение для Windows на базе **[zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube)**, которое упрощает работу с `zapret` без ручного ковыряния `.bat`-файлов, PowerShell-меню и внутренних настроек.
+Portable GUI-приложение для Windows на базе **[zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube)**, которое упрощает работу с `zapret` без ручной работы с `.bat`-файлами, PowerShell-меню и внутренних настройками.
 
 Latest release:
 https://github.com/helight59/hel-zapret-ui/releases

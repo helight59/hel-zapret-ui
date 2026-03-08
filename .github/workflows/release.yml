@@ -30,10 +30,10 @@ jobs:
           pip install -r requirements-dev.txt
 
       - name: Build onedir
-        run: pyinstaller -y hel_zapret_ui.spec
+        run: pyinstaller --clean -y hel_zapret_ui.spec
 
       - name: Build onefile
-        run: pyinstaller -y hel_zapret_ui_onefile.spec
+        run: pyinstaller --clean -y hel_zapret_ui_onefile.spec
 
       - name: Prepare release assets
         shell: pwsh

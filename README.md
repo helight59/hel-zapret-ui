@@ -131,10 +131,10 @@ pip install -r requirements-dev.txt
 
 ```bat
 :: onedir
-pyinstaller -y hel_zapret_ui.spec
+pyinstaller --clean -y hel_zapret_ui.spec
 
 :: onefile
-pyinstaller -y hel_zapret_ui_onefile.spec
+pyinstaller --clean -y hel_zapret_ui_onefile.spec
 ```
 
 Результат:

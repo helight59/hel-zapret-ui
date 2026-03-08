@@ -1,6 +1,10 @@
-# hel zapret ui
+# Hel zapret UI
 
-Portable GUI-приложение для Windows, которое упрощает работу с **zapret-discord-youtube**: установка и обновление `zapret`, запуск и остановка службы, выбор стратегии, игровой режим, пользовательские списки, тесты соединения и PDF-отчёты.
+Latest release:
+https://github.com/helight59/hel-zapret-ui/releases
+---
+
+Portable GUI-приложение для Windows, основанное на **[zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube)**, которое упрощает работу с ним: установка и обновление `zapret`, запуск и остановка службы, выбор стратегии, игровой режим, пользовательские списки, тесты соединения и PDF-отчёты.
 
 Приложение рассчитано на обычного пользователя: без ручного ковыряния bat-файлов, PowerShell-меню и внутренностей `zapret`.
 

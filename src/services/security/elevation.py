@@ -18,7 +18,7 @@ def ensure_elevated() -> None:
     exe = sys.executable
 
     if getattr(sys, 'frozen', False):
-        params = ' '.join([_quote(a) for a in sys.argv])
+        params = ' '.join(_quote(a) for a in sys.argv[1:])
     else:
         params = '-m src.main'
         extra = sys.argv[1:]

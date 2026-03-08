@@ -1,0 +1,73 @@
+name: Build release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Build onedir
+        run: pyinstaller -y hel_zapret_ui.spec
+
+      - name: Build onefile
+        run: pyinstaller -y hel_zapret_ui_onefile.spec
+
+      - name: Prepare release archives
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path release | Out-Null
+
+          if (Test-Path release/hel-zapret-ui-onedir.zip) {
+            Remove-Item release/hel-zapret-ui-onedir.zip -Force
+          }
+
+          if (Test-Path release/hel-zapret-ui-onefile.zip) {
+            Remove-Item release/hel-zapret-ui-onefile.zip -Force
+          }
+
+          Compress-Archive -Path dist/hel_zapret_ui/* -DestinationPath release/hel-zapret-ui-onedir.zip -Force
+
+          Copy-Item dist/hel_zapret_ui.exe release/hel_zapret_ui.exe -Force
+          Compress-Archive -Path release/hel_zapret_ui.exe -DestinationPath release/hel-zapret-ui-onefile.zip -Force
+          Remove-Item release/hel_zapret_ui.exe -Force
+
+      - name: Upload workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hel-zapret-ui-windows
+          path: |
+            release/hel-zapret-ui-onedir.zip
+            release/hel-zapret-ui-onefile.zip
+          if-no-files-found: error
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            release/hel-zapret-ui-onedir.zip
+            release/hel-zapret-ui-onefile.zip

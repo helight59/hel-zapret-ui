@@ -232,7 +232,7 @@ Thumbs.db
 Desktop.ini
 
 # Local app/runtime artifacts
-zapret/
+./zapret/
 release/
 out/
 *.zip

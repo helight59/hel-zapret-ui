@@ -1,10 +1,6 @@
-# Hel zapret UI
+# hel zapret ui
 
-Latest release:
-https://github.com/helight59/hel-zapret-ui/releases
----
-
-Portable GUI-приложение для Windows, основанное на **[zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube)**, которое упрощает работу с ним: установка и обновление `zapret`, запуск и остановка службы, выбор стратегии, игровой режим, пользовательские списки, тесты соединения и PDF-отчёты.
+Portable GUI-приложение для Windows, которое упрощает работу с **zapret-discord-youtube**: установка и обновление `zapret`, запуск и остановка службы, выбор стратегии, игровой режим, пользовательские списки, тесты соединения и PDF-отчёты.
 
 Приложение рассчитано на обычного пользователя: без ручного ковыряния bat-файлов, PowerShell-меню и внутренностей `zapret`.
 
@@ -108,7 +104,7 @@ pip install -r requirements.txt
 ### 2. Запустить приложение
 
 ```bat
-python src/main.py
+python -m src.main
 ```
 
 Если приложение стартует без прав администратора, оно само запросит повышение прав.
@@ -131,10 +127,10 @@ pip install -r requirements-dev.txt
 
 ```bat
 :: onedir
-pyinstaller --clean -y hel_zapret_ui.spec
+pyinstaller -y hel_zapret_ui.spec
 
 :: onefile
-pyinstaller --clean -y hel_zapret_ui_onefile.spec
+pyinstaller -y hel_zapret_ui_onefile.spec
 ```
 
 Результат:
